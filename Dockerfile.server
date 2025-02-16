@@ -1,18 +1,31 @@
-
-FROM python:3.9
-
+FROM python:3.9-slim
 
 WORKDIR /app
 
-
-COPY server.py .
+# Install dependencies
 COPY requirements.txt .
-
-
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy server code
+COPY server.py .
 
-EXPOSE 5000
+# Create data directory
+RUN mkdir -p /app/data
 
+# Create healthcheck script
+COPY <<EOF /app/healthcheck.py
+import urllib.request
+import sys
 
+try:
+    response = urllib.request.urlopen('http://localhost:5000/health')
+    if response.getcode() == 200:
+        sys.exit(0)
+    else:
+        sys.exit(1)
+except Exception as e:
+    sys.exit(1)
+EOF
+
+# Run server
 CMD ["python", "server.py"]

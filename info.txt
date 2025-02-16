@@ -1,3 +1,23 @@
 start python server.py
 start python client1.py
 start python client2.py
+
+kind create cluster --name flask
+
+
+docker build -t tv_kb_assessment-server:latest ./server
+docker build -t tv_kb_assessment-client1:latest ./client1
+docker build -t tv_kb_assessment-client2:latest ./client2
+
+
+kind load docker-image tv_kb_assessment-server:latest  --name flask
+kind load docker-image tv_kb_assessment-client1:latest  --name flask
+kind load docker-image tv_kb_assessment-client2:latest  --name flask
+
+
+kubectl apply -f k8s-deployments.yaml
+ 
+
+kubectl get pods -w
+
+kubectl logs 

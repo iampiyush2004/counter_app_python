@@ -1,0 +1,4 @@
+requests
+num2words
+python-socketio
+websocket-client

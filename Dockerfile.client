@@ -1,0 +1,16 @@
+
+FROM python:3.9
+
+
+WORKDIR /app
+
+
+COPY client1.py .
+COPY client2.py .
+COPY requirements.txt .
+
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+CMD ["python", "client1.py"]

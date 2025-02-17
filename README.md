@@ -27,7 +27,7 @@ Ensure you have the following installed:
 ### **Step 1: Clone the Repository**
 ```sh
 git clone https://github.com/iampiyush2004/counter_app_python.git
-cd <your-repo-folder>
+
 ```
 
 ### **Step 2: Build Docker Images**

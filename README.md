@@ -32,9 +32,9 @@ git clone https://github.com/iampiyush2004/counter_app_python.git
 
 ### **Step 2: Build Docker Images**
 ```sh
-docker build -t flask-server -f server/Dockerfile .
-docker build -t client1 -f client/Dockerfile .
-docker build -t client2 -f client/Dockerfile .
+docker build -t flask-server ./server
+docker build -t client1 ./client1
+docker build -t client2  ./client2
 ```
 
 ### **Step 3: Create a Kind Cluster**

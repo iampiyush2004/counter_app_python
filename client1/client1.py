@@ -137,7 +137,7 @@ class CountingClient:
                         self.sio.emit('number', {'client_id': self.client_id, 'number': number})
                         time.sleep(1)  # Wait 1 second
                     
-                    if number >= 500:  # Stop at 500
+                    if number >= 2000:  # Stop at 2000
                         break
 
                     number += 1

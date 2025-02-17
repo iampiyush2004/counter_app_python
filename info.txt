@@ -18,6 +18,6 @@ kind load docker-image tv_kb_assessment-client2:latest  --name flask
 kubectl apply -f k8s-deployments.yaml
  
 
-kubectl get pods -w
+kubectl get pods -o wide
 
 kubectl logs 
